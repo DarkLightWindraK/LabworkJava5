@@ -34,6 +34,13 @@ public class Injector {
         }
     }
 
+    /**
+     * Инициализирует поля объекта, помеченные аннотацией @AutoInjectable, экземплярами классов,
+     * указанных в properties файле
+     * @param object объект для инициализации полей
+     * @param <T> тип объекта
+     * @throws IllegalAccessException если нет доступа к полю
+     */
     public <T> void inject(T object) throws IllegalAccessException {
         Class<?> clazz = object.getClass();
         for (Field field : clazz.getDeclaredFields()) {
